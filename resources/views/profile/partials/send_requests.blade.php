@@ -15,7 +15,7 @@
                     @else
                         <span class="bg-gray-400 px-2 py-1 my-5 rounded-2xl absolute top-0 right-6">{{ $sendRequest->status }}</span>
                     @endif
-                    <img src="{{ asset($sendRequest->receiver->profile->image) }}" alt="Receiver's Image" class="object-cover" width="150px" height="150px">
+                    <img src="{{ image_url($sendRequest->receiver->profile->image) }}" alt="Receiver's Image" class="object-cover" width="150px" height="150px">
                     <div class="p-6 relative">
                         <p class="text-gray-600 text-sm">{{ $sendRequest->created_at }}</p>
                         <p class="text-lg font-medium text-gray-900">{{ $sendRequest->receiver->name }}</p>

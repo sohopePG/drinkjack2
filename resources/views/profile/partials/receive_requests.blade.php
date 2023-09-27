@@ -14,7 +14,7 @@
                     @elseif ($receiveRequest->status === '否認')
                         <span class="bg-red-400 px-2 py-1 my-5 rounded-2xl absolute top-0 right-6">{{ $receiveRequest->status }}しました</span>
                     @endif
-                    <img src="{{ asset($receiveRequest->receiver->profile->image) }}" alt="Receiver's Image"
+                    <img src="{{ image_url($receiveRequest->receiver->profile->image) }}" alt="Receiver's Image"
                         class="object-cover w-16 h-16 md:w-36 md:h-36">
                     <div class="p-6 break-words">
                         <p class="text-gray-600 text-sm">{{ $receiveRequest->created_at }}</p>

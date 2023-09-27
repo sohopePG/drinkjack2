@@ -22,7 +22,7 @@
                                 </div>
                             </div>
 
-                            <img src="{{ asset($recruitment->image) }}">
+                            <img src="{{ image_url($recruitment->image) }}">
                             <span
                                 class="bg-green-400 px-4 py-3 mb-10 rounded-2xl  lg:hidden absolute -top-10 right-0">{{ $recruitment->status }}</span>
                         </div>
@@ -116,7 +116,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg px-5 py-5 lg:w-1/2">
                     <a href="{{ route('nomimatch.user_detail', $recruitment->user->profile) }}"
                         class="text-lg font-medium hover:underline">
-                        <img src="{{ asset($recruitment->user->profile->image) }}"class="h-32 w-32">
+                        <img src="{{ image_url($recruitment->user->profile->image) }}"class="h-32 w-32">
                         作成者:{{ $recruitment->user->name }}
                     </a>
                     <div class="rounded-r-lg text-lg px-5 py-5 bg-gray-200 border-l-4 border-solid border-gray-600 max-w-full break-words">
@@ -139,7 +139,7 @@
                             <div class="flex-col px-3 py-5 flex justify-between">
                                 <a href="{{ route('nomimatch.user_detail', $participant->profile) }}"
                                     class="text-lg font-medium hover:underline">
-                                    <img src="{{ asset($participant->user->profile->image) }}"class="w-16 h-16 md:w-36 md:h-36 mx-auto"
+                                    <img src="{{ image_url($participant->user->profile->image) }}"class="w-16 h-16 md:w-36 md:h-36 mx-auto"
                                         class="my-auto">
                                     {{ $participant->user->name }}
                                 </a><br>
@@ -168,7 +168,7 @@
                                 <div class="p-4">
                                     <div class="flex justify-between relative">
                                         <div class="flex items-center">
-                                            <img src="{{ asset($comment->user->profile->image) }}"
+                                            <img src="{{ image_url($comment->user->profile->image) }}"
                                                 class="w-16 h-16 md:w-20 md:h-20" alt="User Image">
                                         </div>
                                         <div class="w-11/12 my-auto ml-6">
