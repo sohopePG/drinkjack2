@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
+    public function register()
     {
         //
         $this->app->bind(Cloudinary::class,function(){
@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
-        if($this->app->environment('production')){
+        if($this->app->environment('build')){
             $this->app->bind(ImageManagerInterface::class,CloudinaryImageManager::class);
         }else{
             $this->app->bind(ImageManagerInterface::class,LocalImageManager::class);
