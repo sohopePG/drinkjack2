@@ -14,9 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class RecruitmentController extends Controller
 {
-    public function __construct(private ImageManagerInterface $imageManager){
 
-    }
     public function index()
     {
         // 募集一覧を取得
