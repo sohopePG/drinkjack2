@@ -59,8 +59,6 @@ class RegisteredUserController extends Controller
         $profile->status = 'いつでも飲みOKオフ';
         $profile->save();
 
-        event(new Registered($user));
-
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
