@@ -6,7 +6,7 @@
     </header>
 
     <div>
-        <img src="{{ image_url($profile->image) }}" width="200" height="250">
+        <img src="{{ asset($profile->image) }}" width="200" height="250">
     </div>
 
     <div class="p-5 rounded-md">

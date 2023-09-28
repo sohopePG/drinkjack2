@@ -18,7 +18,7 @@
                                 <div
                                     class="md:h-full md:border-2 md:border-gray-200 md:border-opacity-60 rounded-lg overflow-hidden ">
                                     <img class="lg:h-48 md:h-36 w-full object-cover object-center mx-auto userimg"
-                                        src="{{ image_url($user->image) }}" alt="User Image">
+                                        src="{{ asset($user->image) }}" alt="User Image">
                                     <div class="p-6 text-center">
                                         <a href="{{ route('nomimatch.user_detail', $user) }}"
                                             class="text-lg font-medium">

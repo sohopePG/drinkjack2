@@ -18,7 +18,7 @@
         <p class="mt-1 text-sm text-gray-600">
             {{ __($profile->user->name) }}
         </p>
-            <img src="{{ image_url($profile->image) }}" width="200" height="250">
+            <img src="{{ asset($profile->image) }}" width="200" height="250">
         </div>
 
         <div>

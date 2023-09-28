@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use APP\Modules\ImageUpload\ImageManagerInterface;
+use App\Modules\ImageUpload\ImageManagerInterface;
 use App\Http\Requests\RecRequest;
 use App\Models\Announcement;
 use App\Models\Announcement_admin;
@@ -71,7 +71,7 @@ class RecruitmentController extends Controller
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-            $image->$this->imageManager->storeAs('public/images',$imageName);
+            $image->storeAs('public/images',$imageName);
             $recruitment->image = 'storage/images/' . $imageName;
         }
 
@@ -139,7 +139,7 @@ public function delete(Recruitment $recruitment)
     // ファイルが存在する場合に削除
     if ($filePath) {
         // ファイルを削除
-        Storage::disk('public')->$this->imageManager->delete('images/'.$filePath);
+        Storage::disk('public')->delete('images/'.$filePath);
     }
 
     // レコードを削除
