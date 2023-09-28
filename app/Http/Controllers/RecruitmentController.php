@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use APP\Modules\ImageUpload\ImageManagerInterface;
+use App\Modules\ImageUpload\ImageManagerInterface;
 use App\Http\Requests\RecRequest;
 use App\Models\Announcement;
 use App\Models\Announcement_admin;
