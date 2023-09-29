@@ -8,17 +8,17 @@
         @else
             @foreach ($receiveRequests as $receiveRequest)
 
-                <div class="md:bg-white border-b md:border border-gray-200 md:rounded-lg md:shadow-md overflow-hidden mb-4 flex items-center relative w-full">
-                    @if ($receiveRequest->status === '承認')
-                        <span class="bg-green-400 px-2 py-1 my-5 rounded-2xl absolute top-0 right-6">{{ $receiveRequest->status }}しました</span>
+            <div class="md:bg-white border-b md:border border-gray-200 md:rounded-lg md:shadow-md overflow-hidden mb-4 flex items-center relative w-full">
+                @if ($receiveRequest->status === '承認')
+                <span class="bg-green-400 px-2 py-1 my-5 rounded-2xl absolute top-0 right-6">{{ $receiveRequest->status }}しました</span>
                     @elseif ($receiveRequest->status === '否認')
                         <span class="bg-red-400 px-2 py-1 my-5 rounded-2xl absolute top-0 right-6">{{ $receiveRequest->status }}しました</span>
                     @endif
-                    <img src="{{ Storage::disk('s3')->url($receiveRequest->receiver->profile->image) }}" alt="Receiver's Image"
+                    <img src="{{ Storage::disk('s3')->url($receiveRequest->requester->profile->image) }}" alt="Receiver's Image"
                         class="object-cover w-16 h-16 md:w-36 md:h-36">
-                    <div class="p-6 break-words">
-                        <p class="text-gray-600 text-sm">{{ $receiveRequest->created_at }}</p>
-                        <p class="text-lg font-medium text-gray-900">{{ $receiveRequest->receiver->name }}</p>
+                        <div class="p-6 break-words">
+                            <p class="text-gray-600 text-sm">{{ $receiveRequest->created_at }}</p>
+                            <p>{{ $receiveRequest->requester->name }}さんから飲みの依頼が来ました!</p>
                         <p class="rounded-lg md:text-lg md:px-5 md:py-5 md:bg-gray-200 ">
                             {!! nl2br(e($receiveRequest->comment)) !!}
                         </p>
