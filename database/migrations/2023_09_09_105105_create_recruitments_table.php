@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('max_participants')->nullable();
             $table->string('status');
             $table->boolean('update_flag')->default(false);
-            $table->string('image')->nullable()->default("storage/thumbnails/OGsS71Sul7kvc6bkI8mC1kBfeIXQ5Ts2CHAxTgyt.jpg");
+            $table->string('image')->nullable()->default("https://s3-ap-northeast-1.amazonaws.com/drinkjack/OGsS71Sul7kvc6bkI8mC1kBfeIXQ5Ts2CHAxTgyt.jpg");
             // 他のカラムをここに追加
             $table->timestamps();
 

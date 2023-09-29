@@ -23,7 +23,7 @@
                                     <div
                                         class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg ">
                                         <img class="lg:h-48 md:h-36 w-full object-cover object-center"
-                                            src="{{ asset($recruitment->image) }}" alt="blog">
+                                            src="{{ Storage::disk('s3')->url($recruitment->image) }}" alt="blog">
                                         <div class="p-6 relative">
                                             <span
                                                 class="bg-green-400 px-2 py-2 rounded-2xl">{{ $recruitment->status }}</span>

@@ -63,14 +63,12 @@ class RecruitmentController extends Controller
         $recruitment->max_participants = $request->max_participants;
 
         if ($request->hasFile('image')) {
-            if (!Storage::exists('public/images')) {
-                Storage::makeDirectory('public/images');
-            }
+
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-            $image->storeAs('public/images',$imageName);
-            $recruitment->image = 'storage/images/' . $imageName;
+            $path = Storage::disk('s3')->put('/',$imageName, 'public');
+            $recruitment->image = $path;
         }
 
         $recruitment->description = $request->description;
@@ -107,14 +105,13 @@ class RecruitmentController extends Controller
 
 
     if ($request->hasFile('image')) {
-        if (!Storage::exists('public/images')) {
-            Storage::makeDirectory('public/images');
-        }
+
         $image = $request->file('image');
         $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-        $image->storeAs('public/images',$imageName);
-        $recruitment->image = 'storage/images/' . $imageName;
+        $path = Storage::disk('s3')->put('/',$imageName, 'public');
+
+        $recruitment->image = 'storage/images/' .  $path;
     }
 
     $recruitment->description = $request->description;
@@ -128,17 +125,6 @@ class RecruitmentController extends Controller
 
 public function delete(Recruitment $recruitment)
 {
-    // ファイルのパスを取得
-    $imagePath = $recruitment->image;
-
-    // パスから"storage/image/"の部分を削除
-    $filePath = str_replace('storage/images/', '', $imagePath);
-
-    // ファイルが存在する場合に削除
-    if ($filePath) {
-        // ファイルを削除
-        Storage::disk('public')->delete('images/'.$filePath);
-    }
 
     // レコードを削除
     $recruitment->delete();
