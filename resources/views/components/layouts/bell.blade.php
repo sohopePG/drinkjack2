@@ -159,5 +159,11 @@
             });
         });
     </script>
-
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ページ読み込み時に showModal を false に設定
+        const modalContainer = document.querySelector('.modal-container');
+        modalContainer.style.display = 'none';
+    });
+</script>
 </div>
