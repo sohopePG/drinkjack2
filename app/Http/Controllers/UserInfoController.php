@@ -27,15 +27,16 @@ class UserInfoController extends Controller
         $profile->location = $requset->location;
         $profile->group = $requset->group;
         if ($requset->hasFile('image')) {
-            if (!Storage::exists('public/images')) {
-                Storage::makeDirectory('public/images');
-            }
             $image = $requset->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-            $image->storeAs('public/images',$imageName);
-            $profile->image = 'storage/images/' . $imageName;
+            // S3に画像をアップロード
+            Storage::disk('s3')->putFileAs('/', $image, $imageName);
+
+            // 画像のURLをデータベースに保存
+            $profile->image = $imageName;
         }
+
 
         $profile->save();
         return redirect()->route('nomimatch.user_detail',$profile)->with('feedback.success', '保存しました');

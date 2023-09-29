@@ -63,12 +63,14 @@ class RecruitmentController extends Controller
         $recruitment->max_participants = $request->max_participants;
 
         if ($request->hasFile('image')) {
-
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-            $path = Storage::disk('s3')->put('/',$imageName, 'public');
-            $recruitment->image = $path;
+            // S3に画像をアップロード
+            Storage::disk('s3')->putFileAs('/', $image, $imageName);
+
+            // 画像のURLをデータベースに保存
+            $recruitment->image = $imageName;
         }
 
         $recruitment->description = $request->description;
@@ -105,13 +107,14 @@ class RecruitmentController extends Controller
 
 
     if ($request->hasFile('image')) {
-
         $image = $request->file('image');
         $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-        $path = Storage::disk('s3')->put('/',$imageName, 'public');
+        // S3に画像をアップロード
+        Storage::disk('s3')->putFileAs('/', $image, $imageName);
 
-        $recruitment->image = 'storage/images/' .  $path;
+        // 画像のURLをデータベースに保存
+        $recruitment->image = $imageName;
     }
 
     $recruitment->description = $request->description;
@@ -126,11 +129,17 @@ class RecruitmentController extends Controller
 public function delete(Recruitment $recruitment)
 {
 
-    // レコードを削除
-    $recruitment->delete();
+   // 削除する画像ファイル名を取得
+   $imageName = $recruitment->image;
 
-    // リダイレクトと成功メッセージを追加
-    return redirect()->route('nomimatch.index')->with('feedback.success', '募集を削除しました！');
+   // レコードを削除
+   $recruitment->delete();
+
+   // S3から画像を削除
+   Storage::disk('s3')->delete($imageName);
+
+   // リダイレクトと成功メッセージを追加
+   return redirect()->route('nomimatch.index')->with('feedback.success', '募集を削除しました！');
 }
 
 }
