@@ -1,6 +1,6 @@
 <div x-data="{ showModal: false }">
     <!-- ここに未読のお知らせアイコンを追加 -->
-    <div class="relative ">
+    <div class="relative" x-cloak>
         <!-- 未読のカウントを表示する要素 -->
         <div class="absolute top-0.5 left-5 -mt-2 -mr-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center"
             id="unread-mark">
@@ -159,11 +159,4 @@
             });
         });
     </script>
- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // ページ読み込み時に showModal を false に設定
-        const modalContainer = document.querySelector('.modal-container');
-        modalContainer.style.display = 'none';
-    });
-</script>
 </div>
