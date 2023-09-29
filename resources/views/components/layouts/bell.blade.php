@@ -1,6 +1,6 @@
 <div x-data="{ showModal: false }">
     <!-- ここに未読のお知らせアイコンを追加 -->
-    <div class="relative" x-cloak>
+    <div class="relative">
         <!-- 未読のカウントを表示する要素 -->
         <div class="absolute top-0.5 left-5 -mt-2 -mr-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center"
             id="unread-mark">
@@ -21,7 +21,7 @@
 
     <!-- モーダル -->
 
-    <div x-show="showModal" x-on:click.away="showModal = false"
+    <div x-cloak x-show="showModal" x-on:click.away="showModal = false"
         class="fixed flex items-center justify-center z-50 inset-0.5  ">
         <div class="absolute inset-0 bg-black opacity-80"></div>
 
