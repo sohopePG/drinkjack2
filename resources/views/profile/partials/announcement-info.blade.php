@@ -1,7 +1,7 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('のみまっち') }}
+            {{ __('通知') }}
         </h2>
     </header>
 
@@ -13,8 +13,8 @@
     </div>
 
     <div>
-        <x-input-label for="group" :value="__('メッセージ')" />
-            <x-input-label for="group" :value="__('参加者が現れました')" />
+
+            <x-input-label for="group" :value="__('{{$announcement->sender->name."さんが参加しました!"}}')" />
 
     </div>
 </section>
