@@ -9,7 +9,7 @@
         <p class="mt-1 text-sm text-gray-600">
             {{ __($announcement->sender->name) }}
         </p>
-        <img src="{{ asset($announcement->sender->profile->image) }}" width="200" height="250">
+        <img src="{{ Storage::disk('s3')->url($announcement->sender->profile->image) }}" width="200" height="250">
     </div>
 
     <div>

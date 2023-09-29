@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('status')->default('いつでも飲みOKオフ');
             $table->string('location')->nullable();
             $table->string('group')->nullable();
-            $table->string('image')->nullable()->default("storage/thumbnails/kkrn_icon_user_5.png");
+            $table->string('image')->nullable()->default('kkrn_icon_user_5.png');
             // 他のカラムをここに追加
             $table->timestamps();
         });
