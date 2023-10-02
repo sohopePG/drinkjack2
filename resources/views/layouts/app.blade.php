@@ -35,6 +35,7 @@
             {{ $slot }}
         </main>
     </div>
+    <x-footer></x-footer>
 <script>
     function confirmAction(url, message) {
         if (confirm(message)) {

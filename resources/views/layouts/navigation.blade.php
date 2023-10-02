@@ -96,18 +96,6 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-nav-link :href="route('nomimatch.index')" :active="request()->routeIs('dashboard')">
-                {{ __('ホーム') }}
-            </x-nav-link>
-            <x-nav-link :href="route('nomimatch.request_send')" :active="request()->routeIs('dashboard')">
-                {{ __('送った依頼') }}
-            </x-nav-link>
-            <x-nav-link :href="route('nomimatch.request_receive')" :active="request()->routeIs('dashboard')">
-                {{ __('受け取った依頼') }}
-            </x-nav-link>
-        </div>
-
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">

@@ -11,7 +11,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="md:p-6 p-2 bg-white border-b border-gray-200">
                     <div class="container mx-auto lg:flex">
                         <div class="md:w-1/2 relative">
                             <div class="my-5">
@@ -24,7 +24,7 @@
 
                             <img src="{{ Storage::disk('s3')->url($recruitment->image) }}">
                             <span
-                                class="bg-green-400 px-4 py-3 mb-10 rounded-2xl  lg:hidden absolute -top-10 right-0">{{ $recruitment->status }}</span>
+                                class="bg-green-400 px-2 py-1 mb-3 rounded-2xl  lg:hidden absolute top-0 right-0">{{ $recruitment->status }}</span>
                         </div>
                         <div class="p-6 relative lg:w-1/3 lg:mx-auto flex flex-col justify-center">
 
@@ -116,10 +116,10 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg px-5 py-5 lg:w-1/2">
                     <a href="{{ route('nomimatch.user_detail', $recruitment->user->profile) }}"
                         class="text-lg font-medium hover:underline">
-                        <img src="{{ Storage::disk('s3')->url($recruitment->user->profile->image) }}"class="h-32 w-32">
+                        <img src="{{ Storage::disk('s3')->url($recruitment->user->profile->image) }}"class="md:h-32 md:w-32 h-24 w-24">
                         作成者:{{ $recruitment->user->name }}
                     </a>
-                    <div class="rounded-r-lg text-lg px-5 py-5 bg-gray-200 border-l-4 border-solid border-gray-600 max-w-full break-words">
+                    <div class="rounded-r-lg text-lg md:px-5 md:py-5 px-2 py-2 bg-gray-200 border-l-4 border-solid border-gray-600 max-w-full break-words">
                         {!! nl2br(e( $recruitment->description)) !!}
                     </div>
                 </div>

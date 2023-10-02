@@ -36,7 +36,7 @@
                                             </div>
 
                                             <!-- モーダル -->
-                                            <div x-show="isOpen" class="fixed inset-0 overflow-y-auto z-50">
+                                            <div x-cloak x-show="isOpen" class="fixed inset-0 overflow-y-auto z-50">
                                                 <div class="flex items-center justify-center min-h-screen">
                                                     <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                                                         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
