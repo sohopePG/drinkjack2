@@ -64,7 +64,7 @@
                                     場所:{{ $recruitment->location }}
                                 </div>
 
-                                <div class="flex my-3 lg:my-6 lg:text-xl">
+                                <div class="flex my-1 lg:my-6 lg:text-xl">
                                     <svg role="img" xmlns="http://www.w3.org/2000/svg" class="mr-2" width="24px"
                                         height="24px" viewBox="0 0 24 24" aria-labelledby="calendarIconTitle"
                                         stroke="#000000" stroke-width="1" stroke-linecap="square"
@@ -77,7 +77,7 @@
                                     </svg>開催予定日:<span
                                         class="text-xl text-red-600 font-bold ml-1">{{ $recruitment->date_time }}</span>
                                 </div>
-                                <div class="flex my-3 lg:my-6 lg:text-xl">
+                                <div class="flex my-1 lg:my-6 lg:text-xl">
                                     @if ($recruitment->deadline)
                                         <svg class="mr-2" width="24px" height="24px" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@
                             </div>
                             @if (!isset($existingParticipant))
                                 <a href="{{ route('nomimatch.participate', $recruitment) }}"
-                                    class="px-5 py-5 shadow-lg cursor-pointer text-center text-white rounded-md bg-yellow-500 hover:bg-yellow-600 hover:shadow-xl mt-4">この飲み会に参加する</a>
+                                    class="px-5 py-5 shadow-lg cursor-pointer text-center text-white rounded-md bg-yellow-500 hover:bg-yellow-600 hover:shadow-xl mt-4 "onclick="return confirm('この飲み会に参加します。よろしいですか？')">この飲み会に参加する</a>
                             @elseif(isset($existingParticipant))
                                 <a href="#"
                                     class="px-5 py-5 shadow-lg cursor-pointer text-center text-white rounded-md bg-gray-300">参加済み</a>

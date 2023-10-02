@@ -14,12 +14,12 @@
                         </div>
                         @else
                         @foreach ($alwaysOkUsers as $user)
-                            <div class="p-4 md:w-1/5 sm:1/2">
+                            <div class="p-4 md:w-1/5 w-1/3">
                                 <div
                                     class="md:h-full md:border-2 md:border-gray-200 md:border-opacity-60 rounded-lg overflow-hidden ">
                                     <img class="lg:h-48 md:h-36 w-full object-cover object-center mx-auto userimg"
                                         src="{{ Storage::disk('s3')->url($user->image) }}" alt="User Image">
-                                    <div class="p-6 text-center">
+                                    <div class="md:p-6 text-center">
                                         <a href="{{ route('nomimatch.user_detail', $user) }}"
                                             class="text-lg font-medium">
                                             {{ $user->user->name }}
@@ -30,7 +30,7 @@
                                             <!-- トリガーボタン -->
                                             <div class="w-full flex justify-center items-center my-5">
                                             <button @click="isOpen = true"
-                                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                class="bg-blue-500 hover:bg-blue-700 text-sm text-white font-bold py-1 px-2 sm:py-2 sm:px-4 rounded">
                                                 飲みの依頼を送る
                                             </button>
                                             </div>

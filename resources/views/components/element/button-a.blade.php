@@ -17,7 +17,7 @@
     }
 @endphp
 <a href="{{ $href }}"
-   class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 {{ getThemeClassForButtonA($theme) }}"
+   class="inline-flex justify-center py-1 px-2 sm:py-2 sm:px-4 border border-transparent shadow-sm text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 {{ getThemeClassForButtonA($theme) }}"
    onclick="return confirm('{{ $str }}')">
    {{ $slot }}
 </a>

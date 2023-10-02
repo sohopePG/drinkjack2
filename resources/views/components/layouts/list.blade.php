@@ -22,7 +22,7 @@
                                 <div class="relative text-gray-500 top-0 rigth-0 w-full ">
                                     <div
                                         class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg ">
-                                        <img class="lg:h-48 md:h-36 w-full object-cover object-center"
+                                        <img class="lg:h-48 md:h-36 w-full object-cover object-center hidden md:block"
                                             src="{{ Storage::disk('s3')->url($recruitment->image) }}" alt="blog">
                                         <div class="p-6 relative">
                                             <span
@@ -53,7 +53,7 @@
                                                             募集人数: {{ $recruitment->max_participants }}人
                                                         @endif
                                                     </div>
-                                                    <div class="flex">
+                                                    <div class="md:block md:flex flex hidden ">
                                                         <svg class="mr-2" width="24px" height="24px"
                                                             viewBox="0 0 24 24" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@
                                                         </svg>開催予定日:<span
                                                             class="text-xl text-red-600 font-bold ml-1">{{ $recruitment->date_time }}</span>
                                                     </div>
-                                                    <div class="flex">
+                                                    <div class="md:block md:flex flex hidden">
                                                         @if ($recruitment->deadline)
                                                             <svg class="mr-2" width="24px" height="24px"
                                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@
 
 
                                             <div
-                                                class="border-dashed border-2 border-red-400 px-5 py-5 bg-red-50 text-xl font-bold mt-5">
+                                                class="border-dashed border-2 border-red-400 py-2 px-5 md:py-5 bg-red-50 md:text-xl text-lg font-bold mt-5">
                                                 現在の参加者:<span
                                                     class="text-red-500 ml-5">{{ $recruitment->participants->count() }}</span>
                                                 <a href="{{ route('nomimatch.detal', $recruitment) }}"

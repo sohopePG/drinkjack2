@@ -1,5 +1,5 @@
 
-    <div class="md:h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white p-6 md:mx-12 my-3"> <!-- グレーの背景を追加 -->
+    <div class="w-4/5 md:w-auto mx-auto md:h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white p-4 md:p-6 md:mx-5 my-3"> <!-- グレーの背景を追加 -->
 
         <div class="flex justify-center items-center my-5 flex-col">
         @if ($drinkoff)
