@@ -36,7 +36,7 @@ class ParticipantController extends Controller
             $announcement->save();
 
             if ($recruitment->user->profile->send_email_on_participant) {
-                Mail::to($recruitment->user->email)->send(new ParticipantMail($newparticipant));
+                Mail::from('drinkjack@gmail.com')->to($recruitment->user->email)->send(new ParticipantMail($newparticipant));
             }
 
             return redirect()->route('nomimatch.detal', $recruitment)
