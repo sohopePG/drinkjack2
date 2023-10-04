@@ -48,7 +48,7 @@ class DrinkRequestController extends Controller
         $announcement->save();
 
         if ($drinkRequest->receiver->profile->send_email_on_request_result) {
-            Mail::from('drinkjack@gmail.com')->to($drinkRequest->receiver->email)->send(new DrinkRequestMail($drinkRequest));
+            Mail::to($drinkRequest->receiver->email)->send(new DrinkRequestMail($drinkRequest));
         }
         return redirect()->route('nomimatch.index')->with('feedback.success', '依頼を送りました！');
     }
@@ -75,7 +75,7 @@ class DrinkRequestController extends Controller
             $announcement->title = $sender->name . 'さんが飲みの依頼を否認しました';
         }
         if ($drinkRequest->requester->profile->send_email_on_request_result) {
-            Mail::from('drinkjack@gmail.com')->to($drinkRequest->requester->email)->send(new DrinkRequestResultMail($drinkRequest));
+            Mail::to($drinkRequest->requester->email)->send(new DrinkRequestResultMail($drinkRequest));
         }
 
 

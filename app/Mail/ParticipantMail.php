@@ -29,7 +29,8 @@ class ParticipantMail extends Mailable
     {
         $subject = $this->participant->recruitment->title.'に'.$this->participant->user->name.'さんが参加しました';
 
-        return $this->to($this->participant->user->email)
+        return $this->from('drinkjack@email.com', 'Drink Jack')
+        ->to($this->participant->user->email)
             ->subject($subject)
             ->view('emails.recruitment_mail')
             ->with([

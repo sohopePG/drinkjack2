@@ -27,7 +27,8 @@ class DrinkRequestResultMail extends Mailable
     {
         $subject = '飲みの依頼が ' . $this->drinkRequest->status . 'されました';
 
-        return $this->to($this->drinkRequest->requester->email)
+        return $this->from('drinkjack@email.com', 'Drink Jack')
+        ->to($this->drinkRequest->requester->email)
             ->subject($subject)
             ->view('emails.request_receive_email')
             ->with([

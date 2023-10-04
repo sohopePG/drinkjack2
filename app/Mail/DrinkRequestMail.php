@@ -23,20 +23,10 @@ class DrinkRequestMail extends Mailable
         $this->drinkRequest = $drinkRequest;
     }
 
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: '飲みの依頼が届きました!',
-            from: 'drinkjack@test.com',
-        );
-    }
-
     public function build()
     {
-        return $this->to($this->drinkRequest->receiver->email)
+        return $this->from('drinkjack@email.com', 'Drink Jack')
+            ->to($this->drinkRequest->receiver->email)
             ->subject('飲みの依頼が届きました!')
             ->view('emails.request_receive_email')
             ->with([
