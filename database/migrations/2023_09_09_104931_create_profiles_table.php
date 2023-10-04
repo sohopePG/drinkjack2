@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->string('group')->nullable();
             $table->string('image')->nullable()->default('kkrn_icon_user_5.png');
-            $table->boolean('send_email_on_participant')->default(false);
-            $table->boolean('send_email_on_drink_request')->default(false);
-            $table->boolean('send_email_on_request_result')->default(false);
             // 他のカラムをここに追加
             $table->timestamps();
         });
