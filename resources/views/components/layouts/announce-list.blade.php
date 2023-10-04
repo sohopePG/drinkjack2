@@ -1,5 +1,5 @@
 
-    <div class="container h-4/5 md:h-full md:w-full max-h-sm md:max-h-lg p-3 border-2 border-double bg-gray-50 my-3">
+    <div class="container h-4/5 md:h-full md:max-w-2xl md:w-full max-h-sm md:max-h-lg p-3 border-2 border-double bg-gray-50 my-3">
         <h2 class="text-sm md:text-lg font-semibold border p-1 md:p-3 bg-gray-200">お知らせ</h2>
         <ul class="overflow-y-auto h-36">
             @props(['adminAnnouncements'])

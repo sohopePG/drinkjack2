@@ -56,4 +56,21 @@ class UserInfoController extends Controller
         $profile->save();
         return redirect()->route('nomimatch.index')->with('feedback.success',$str );
     }
+
+    public function show(Profile $profile)
+    {
+        return view('nomimatch.show.mail_flag')->with('profile',$profile);
+    }
+    public function toggle_mail(Request $request,Profile $profile)
+    {
+        // チェックボックスの値を取得してプロフィールに設定
+        $profile->send_email_on_participant = $request->has('send_email_on_participant');
+        $profile->send_email_on_drink_request = $request->has('send_email_on_drink_request');
+        $profile->send_email_on_request_result = $request->has('send_email_on_request_result');
+
+        // プロフィールを保存
+        $profile->save();
+
+        return redirect()->back()->with('feedback.success', 'メール送信設定が保存されました');
+    }
 }

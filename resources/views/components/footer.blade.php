@@ -1,4 +1,4 @@
-<div class="fixed inset-x-0 bottom-0 bg-white md:hidden border-t py-2">
+<div class="sticky inset-x-0 bottom-0 bg-white md:hidden border-t py-2">
     <div class="flex justify-between">
       <div class="w-1/3 flex justify-center flex-col">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke="#000000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000000" class="mx-auto">

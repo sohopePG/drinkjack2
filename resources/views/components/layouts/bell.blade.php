@@ -1,10 +1,10 @@
 <div x-data="{ showModal: false }">
     <!-- ここに未読のお知らせアイコンを追加 -->
-    <div class="relative">
+    <div class="relative flex items-center justify-center">
         <!-- 未読のカウントを表示する要素 -->
         <div class="absolute top-0.5 left-5 -mt-2 -mr-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center"
             id="unread-mark">
-            <span id="unread-count"></span>
+            <span id="unread-count" class="absolute left-2 top-1"></span>
         </div>
 
         <svg role="img" x-on:click="showModal = true" xmlns="http://www.w3.org/2000/svg" width="34px" height="34px"
@@ -18,6 +18,7 @@
                 transform="rotate(90 12 19)" />
         </svg>
     </div>
+
 
     <!-- モーダル -->
 
@@ -37,7 +38,7 @@
                             <a href="{{ route('announcement.show_announcement', $announcement) }}"
                                 data-announcement-id="{{ $announcement->id }}"
                                 data-is-drink-request="{{ $announcement->request_id ? 'true' : 'false' }}"
-                                class="notification-link {{ $announcement->read ? 'opacity-50' : 'font-bold' }} flex items-center mb-4 hover:bg-gray-100 p-4 rounded-lg">
+                                class="notification-link {{ $announcement->read ? 'opacity-50' : 'font-bold' }} flex items-center mb-1 hover:bg-gray-100 p-4 rounded-lg">
                                 <!-- 通知の内容を表示 -->
                                 <div class="w-full">
                                     <div class="flex justify-between flex-col">
@@ -61,6 +62,9 @@
                     <button x-on:click="showModal = false"
                         class="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-600 focus:outline-none focus:shadow-outline-gray active:bg-gray-800">閉じる</button>
                 </div>
+                <div class='mt-2'>
+                    {{ $announcements->links() }}
+                </div>
             </div>
         </div>
     </div>
@@ -79,9 +83,11 @@
                     if (unreadCount > 0) {
                         unreadCountElement.textContent = unreadCount.toString();
                         unreadmarkElement.style.display = 'block';
+                        showModal();
                     } else {
                         unreadmarkElement.style.display = 'none';
                     }
+
                 })
                 .catch(error => {
                     console.error('Error fetching unread count:', error);
@@ -159,4 +165,5 @@
             });
         });
     </script>
+
 </div>

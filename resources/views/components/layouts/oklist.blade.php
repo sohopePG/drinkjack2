@@ -1,7 +1,7 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <h1 class="text-xl p-5 w-full mx-auto border-soild border-gray-200 border-b-2 text-center bg-gray-100">いつでも飲みOKユーザー</h1>
+            <h1 class="text-xl p-5 w-full mx-auto border-soild border-gray-200 border-b-2 text-center bg-gray-100">飲み依頼OKユーザー</h1>
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="container mx-auto">
                     <div class="flex flex-wrap -m-4">
@@ -10,7 +10,7 @@
                         @if ($alwaysOkUsers->isEmpty())
                         <!-- いつでもOKのユーザーがいない場合のメッセージ -->
                         <div class="w-full p-4 text-center">
-                            <p class="text-gray-600 text-lg">いつでもOKのユーザーはいません</p>
+                            <p class="text-gray-600 text-lg">飲み依頼OKのユーザーはいません</p>
                         </div>
                         @else
                         @foreach ($alwaysOkUsers as $user)

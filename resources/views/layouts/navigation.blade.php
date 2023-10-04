@@ -56,6 +56,9 @@
                         <x-dropdown-link :href="route('nomimatch.user_detail', Auth::user())">
                             {{ __('プロフィール確認') }}
                         </x-dropdown-link>
+                        <x-dropdown-link :href="route('nomimatch.mail_flag', Auth::user()->profile)">
+                            {{ __('メール受信設定') }}
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('nomimatch.edit_status', Auth::user())">
                             @if (isset($drinkoff))
                                 {{ __('いつでも飲みOKにする') }}
@@ -63,6 +66,7 @@
                                 {{ __('いつでも飲みOKオフ') }}
                             @endif
                         </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -110,6 +114,9 @@
 
                 <x-dropdown-link :href="route('nomimatch.user_detail', Auth::user())">
                     {{ __('プロフィール確認') }}
+                </x-dropdown-link>
+                <x-dropdown-link :href="route('nomimatch.mail_flag', Auth::user()->profile)">
+                    {{ __('メール受信設定') }}
                 </x-dropdown-link>
 
                 <x-dropdown-link :href="route('nomimatch.edit_status', Auth::user())">

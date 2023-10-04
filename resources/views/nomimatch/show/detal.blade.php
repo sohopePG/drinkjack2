@@ -119,7 +119,7 @@
                         <img src="{{ Storage::disk('s3')->url($recruitment->user->profile->image) }}"class="md:h-32 md:w-32 h-24 w-24">
                         作成者:{{ $recruitment->user->name }}
                     </a>
-                    <div class="rounded-r-lg text-lg md:px-5 md:py-5 px-2 py-2 bg-gray-200 border-l-4 border-solid border-gray-600 max-w-full break-words">
+                    <div class="rounded-r-lg text-lg md:px-5 md:py-5 px-4 py-3 bg-gray-200 border-l-4 border-solid border-gray-600 max-w-full break-words">
                         {!! nl2br(e( $recruitment->description)) !!}
                     </div>
                 </div>

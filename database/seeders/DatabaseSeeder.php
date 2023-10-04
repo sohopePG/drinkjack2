@@ -77,6 +77,10 @@ class DatabaseSeeder extends Seeder
                 'status' => 'いつでも飲みOKオフ',
                 'location' => '東京',
                 'group' => '第2グループ',
+                'send_email_on_participant'=>false,
+                'send_email_on_drink_request'=>false,
+                'send_email_on_request_result'=>false,
+
             ],
             [
                 'user_id' => 2,
@@ -84,6 +88,9 @@ class DatabaseSeeder extends Seeder
                 'status' => 'いつでも飲みOKオフ',
                 'location' => '大阪',
                 'group' => '第1グループ',
+                'send_email_on_participant'=>false,
+                'send_email_on_drink_request'=>false,
+                'send_email_on_request_result'=>false,
             ],
             [
                 'user_id' => 3,
@@ -91,6 +98,9 @@ class DatabaseSeeder extends Seeder
                 'status' => 'いつでもOKオフ',
                 'location' => '愛知',
                 'group' => '第4グループ',
+                'send_email_on_participant'=>true,
+                'send_email_on_drink_request'=>true,
+                'send_email_on_request_result'=>true,
             ],
             // 他のユーザーのプロフィールも追加
         ];

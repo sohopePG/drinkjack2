@@ -68,6 +68,18 @@ Route::middleware('auth')->group(function () {
     ->name('nomimatch.user_update')
     ->where('post', '[0-9]+');
 
+    Route::get('/nomimatch/{profile}/mail_flag', [App\Http\Controllers\UserInfoController::class, 'show'])
+    ->name('nomimatch.mail_flag')
+    ->where('post', '[0-9]+');
+
+    Route::post('/nomimatch/{profile}/update_email_settings',  [App\Http\Controllers\UserInfoController::class, 'toggle_mail'])
+    ->name('nomimatch.update_email_settings')
+    ->where('post', '[0-9]+');
+
+    Route::get('/nomimatch/{profile}/user_detail', [App\Http\Controllers\UserInfoController::class, 'detail'])
+    ->name('nomimatch.user_detail')
+    ->where('post', '[0-9]+');
+
     Route::post('/nomimatch/{recruitment}/comment', [App\Http\Controllers\CommentController::class, 'create'])
     ->name('nomimatch.create_comment')
     ->where('post', '[0-9]+');

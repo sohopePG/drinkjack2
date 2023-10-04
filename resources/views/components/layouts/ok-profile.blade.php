@@ -3,15 +3,15 @@
 
         <div class="flex justify-center items-center my-5 flex-col">
         @if ($drinkoff)
-        <span class="text-sm text-gray-600">いつでも飲みの誘いOKな人はクリック!</span>
+        <span class="text-sm text-gray-600">飲みの誘いOKな人はクリック!</span>
             <x-element.button-a :href="route('nomimatch.edit_status', $loginUser->profile)"
-                theme="secondary" :str="'いつでもOKをオンにしますか？(いつでもOKに設定すると飲みの依頼を受けることができます。)'">いつでも飲みOKにする</x-element.button-a>
+                theme="secondary" :str="'飲み依頼OKをオンにしますか？(飲み依頼OKに設定すると飲みの依頼を受けることができます。)'">飲み依頼OKにする</x-element.button-a>
         @else
         <div class="p-5 border-red-200 border-1 bg-red-100 text-red-700 mb-10">
-            いつでもOKに設定中！
+            飲み依頼OKに設定中！
         </div>
             <x-element.button-a :href="route('nomimatch.edit_status', $loginUser->profile)"
-                theme="cancel" :str="'いつでも飲みOKをオフにします'">いつでも飲みオフにする</x-element.button-a>
+                theme="cancel" :str="'飲みの依頼OKをオフにします'">飲み依頼OKオフにする</x-element.button-a>
         @endif
         </div>
     </div>

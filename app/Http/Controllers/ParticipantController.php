@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ParticipantMail;
 use App\Models\Recruitment;
 use App\Models\Participant;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ParticipantController extends Controller
 {
@@ -32,6 +34,10 @@ class ParticipantController extends Controller
             $announcement->receiver_id = $recruitment->user_id;
             $announcement->title = $sender->name . 'さんが' . $recruitment->title . 'に参加しました！';
             $announcement->save();
+
+            if ($recruitment->user->profile->send_email_on_participant) {
+                Mail::to($recruitment->user->email)->send(new ParticipantMail($newparticipant));
+            }
 
             return redirect()->route('nomimatch.detal', $recruitment)
                 ->with('feedback.success', '参加しました');

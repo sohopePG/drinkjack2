@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MesRequest;
+use App\Mail\DrinkRequestMail;
+use App\Mail\DrinkRequestResultMail;
 use App\Models\User;
 use App\Models\DrinkRequest;
 use App\Models\Announcement;
 use App\Models\AnnouncementRead;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DrinkRequestController extends Controller
 {
@@ -44,6 +47,9 @@ class DrinkRequestController extends Controller
         $announcement->description = $request->comment;
         $announcement->save();
 
+        if ($drinkRequest->receiver->profile->send_email_on_request_result) {
+            Mail::to($drinkRequest->receiver->email)->send(new DrinkRequestMail($drinkRequest));
+        }
         return redirect()->route('nomimatch.index')->with('feedback.success', '依頼を送りました！');
     }
     public function handleRequest(DrinkRequest $drinkRequest, Request $request)
@@ -61,7 +67,6 @@ class DrinkRequestController extends Controller
             // 承認ボタンがクリックされた場合の処理
             $drinkRequest->status = '承認';
             $announcement->title = $sender->name . 'さんが飲みの依頼を承認しました！';
-
             $message = '依頼を承認しました！';
         } elseif ($request->has('deny')) {
             // 否認ボタンがクリックされた場合の処理
@@ -69,6 +74,10 @@ class DrinkRequestController extends Controller
             $message = '依頼を否認しました';
             $announcement->title = $sender->name . 'さんが飲みの依頼を否認しました';
         }
+        if ($drinkRequest->requester->profile->send_email_on_request_result) {
+            Mail::to($drinkRequest->requester->email)->send(new DrinkRequestResultMail($drinkRequest));
+        }
+
 
         $announcement->save();
         $drinkRequest->save();

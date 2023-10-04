@@ -1,7 +1,4 @@
 <section class="w-full">
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">{{ __('のみまっち') }}</h2>
-    </header>
     <div class="w-full mt-4">
         @if ($receiveRequests->isEmpty())
             <p class="text-gray-600 text-lg font-medium mt-4">受け取った依頼はありません</p>

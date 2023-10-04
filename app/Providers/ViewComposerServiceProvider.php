@@ -31,7 +31,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             $announcements = Announcement::where('receiver_id', $userId)
                 ->orderBy('created_at', 'desc')
                 ->orderBy('id', 'desc')
-                ->paginate(10);
+                ->paginate(7);
 
             // $loginUserのプロフィールが存在することを確認
             if ($loginUser->profile) {
