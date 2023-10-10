@@ -10,7 +10,6 @@
                 </li>
             @else
                 @foreach ($adminAnnouncements as $adminAnnouncement)
-
                     <li class="bg-white my-1 md:p-1 truncate text-sm md:text-md">
                         <a href="{{route('announcement.show_admin_announcement',$adminAnnouncement)}}">
                         <small class="text-gray-500">{{ $adminAnnouncement->created_at }}</small>
@@ -20,4 +19,8 @@
                 @endforeach
             @endif
         </ul>
+        @if (auth()->user() && auth()->user()->permission_flag)
+        <!-- 管理者ユーザー向けのお知らせ追加ボタン -->
+        <a href="{{ route('announcement.create') }}" class="mt-3 inline-block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">お知らせを追加</a>
+    @endif
     </div>

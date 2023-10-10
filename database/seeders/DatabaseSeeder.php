@@ -16,16 +16,19 @@ class DatabaseSeeder extends Seeder
                 'name' => 'ユーザー1',
                 'email' => 'user1@example.com',
                 'password' => bcrypt('password1'),
+                'permission_flag' =>false,
             ],
             [
                 'name' => 'ユーザー2',
                 'email' => 'user2@example.com',
                 'password' => bcrypt('password2'),
+                'permission_flag' =>false,
             ],
             [
                 'name' => 'ユーザー3',
                 'email' => 'user3@example.com',
                 'password' => bcrypt('password3'),
+                'permission_flag' =>true,
             ],
             // 他のユーザーも追加
         ];

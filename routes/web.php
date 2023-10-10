@@ -136,6 +136,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/nomimatch/{announcement_admin}/admin_announcement_info', [App\Http\Controllers\Announcement_adminController::class, 'show'])
     ->name('announcement.show_admin_announcement');
 
+    Route::get('/announcements/create', [App\Http\Controllers\Announcement_adminController::class, 'create'])
+    ->name('announcement.create');
+
+    Route::post('/announcements/store', [App\Http\Controllers\Announcement_adminController::class, 'store'])
+    ->name('announcement.store');
+
+
 
     Route::prefix('announcement')->middleware('auth')->group(function(){
 
