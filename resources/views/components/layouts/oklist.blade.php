@@ -14,10 +14,10 @@
                         </div>
                         @else
                         @foreach ($alwaysOkUsers as $user)
-                            <div class="p-4 md:w-1/5 w-1/3">
+                            <div class="p-4 md:w-1/6 w-1/3">
                                 <div
                                     class="md:h-full md:border-2 md:border-gray-200 md:border-opacity-60 rounded-lg overflow-hidden ">
-                                    <img class="lg:h-48 md:h-36 w-full object-cover object-center mx-auto userimg"
+                                    <img class="lg:h-36 md:h-24 w-full object-cover object-center mx-auto userimg"
                                         src="{{ Storage::disk('s3')->url($user->image) }}" alt="User Image">
                                     <div class="md:p-6 text-center">
                                         <a href="{{ route('nomimatch.user_detail', $user) }}"
